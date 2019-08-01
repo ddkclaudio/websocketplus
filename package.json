@@ -1,0 +1,28 @@
+{
+  "name": "websocketplus",
+  "version": "1.0.0",
+  "description": "A simple implementation of websocket auto-reconnection",
+  "main": "index.js",
+  "scripts": {
+    "example": "node examples/coinbase-connection.js"
+  },
+  "author": "Cláudio Fernandes",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^7.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddkclaudio/websocketplus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ddkclaudio/websocketplus/issues"
+  },
+  "homepage": "https://github.com/ddkclaudio/websocketplus#readme",
+  "keywords": [
+    "websocket",
+    "reconnection",
+    "ws"
+  ]
+}
