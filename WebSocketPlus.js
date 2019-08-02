@@ -78,7 +78,7 @@ module.exports = class WebSocketPlus extends EventEmitter {
 
     getTimeWait() {
         this.waitingTime += this.configs.waitingTimeSteps
-        if (this.waitingTime > this.timeReconnect.max)
+        if (this.waitingTime >  this.configs.waitingTimeMax)
             this.waitingTime = this.configs.waitingTimeMin
         return this.waitingTime
     }
