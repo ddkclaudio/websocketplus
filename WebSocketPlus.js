@@ -6,7 +6,7 @@ module.exports = class WebSocketPlus extends EventEmitter {
         super()
         this.ws;
         this.wsurl = wsurl
-
+        this.waitingTime = 0
         this.resetConfigs()
         this.updateConfig(config)
 
@@ -78,7 +78,7 @@ module.exports = class WebSocketPlus extends EventEmitter {
 
     getTimeWait() {
         this.waitingTime += this.configs.waitingTimeSteps
-        if (this.waitingTime >  this.configs.waitingTimeMax)
+        if (this.waitingTime > this.configs.waitingTimeMax)
             this.waitingTime = this.configs.waitingTimeMin
         return this.waitingTime
     }
@@ -92,10 +92,20 @@ module.exports = class WebSocketPlus extends EventEmitter {
             else
                 this.ws.send(JSON.stringify(message))
         } catch (e) {
-            self.emit('error', e);
+            this.emit('error', e);
             return false
         }
 
         return true
+    }
+
+    close() {
+        try {
+            this.ws.close()
+            return true
+        } catch (e) {
+            this.emit("error", e)
+            return false
+        }
     }
 }
